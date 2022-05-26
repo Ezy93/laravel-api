@@ -1929,16 +1929,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Post_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Post.vue */ "./resources/js/components/Post.vue");
+/* harmony import */ var _Post_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Post.vue */ "./resources/js/components/Post.vue");
 //
 //
 //
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PostList',
@@ -1949,13 +1946,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getPosts: function getPosts() {
-      axios.get('http://localhost:8000/api/posts').then(function (result) {})["catch"](function (error) {
+      var _this = this;
+
+      axios.get('http://localhost:8000/api/posts').then(function (result) {
+        _this.posts = result.data.data;
+      })["catch"](function (error) {
         console.warn(error);
       });
     }
   },
+  created: function created() {
+    this.getPosts();
+  },
   components: {
-    Post: _Post_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Post: _Post_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 

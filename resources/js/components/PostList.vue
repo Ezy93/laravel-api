@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Axios from 'axios'
 import Post from './Post.vue'
 export default {
     name: 'PostList',
@@ -20,12 +19,15 @@ export default {
         getPosts(){
             axios.get('http://localhost:8000/api/posts')
             .then((result)=>{
-
+                this.posts = result.data.data;
             })
             .catch((error)=>{
                 console.warn(error);
             });
         }
+    },
+    created(){
+        this.getPosts()
     },
 
     components: {

@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(6);
         return response()->json([
             'success'=> true,
             'results'=> $posts,
@@ -41,7 +41,11 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return response()->json([
+            'success' => 'success',
+            'results'=> $post,
+        ]);
     }
 
     /**

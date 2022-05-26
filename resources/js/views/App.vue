@@ -1,14 +1,19 @@
 <template>
     <div>
-        <h1>work in progress</h1>
-        <h2>sito in costruzione</h2>
+        <PostList/>
     </div>
 </template>
 
 <script>
+import PostList from '../components/PostList.vue';
+
+
 export default {
     name: 'root',
-    components: {},
+    components: {
+    PostList,
+
+},
 }
 </script>
 

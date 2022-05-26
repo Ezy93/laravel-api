@@ -1949,7 +1949,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('http://localhost:8000/api/posts').then(function (result) {
-        _this.posts = result.data.data;
+        _this.posts = result.data.results.data;
+        console.log(_this.posts);
       })["catch"](function (error) {
         console.warn(error);
       });
@@ -1983,7 +1984,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'root',
+  name: 'App',
   components: {
     PostList: _components_PostList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -2505,7 +2506,13 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("Post")], 1)
+  return _c(
+    "div",
+    _vm._l(_vm.posts, function (post, index) {
+      return _c("Post", { key: index })
+    }),
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

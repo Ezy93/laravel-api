@@ -9,7 +9,7 @@ import PostList from '../components/PostList.vue';
 
 
 export default {
-    name: 'root',
+    name: 'App',
     components: {
     PostList,
 

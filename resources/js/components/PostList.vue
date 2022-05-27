@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Post v-for="(post, index) in posts" :key="index"/>
+        <Post :postList="posts"/>
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 import Post from './Post.vue';
 export default {
     name: 'PostList',
+
 
     data(){
         return {
